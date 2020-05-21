@@ -78,6 +78,9 @@ const gameSupport = {
 };
 
 function main(context: types.IExtensionContext) {
+  // Mark incompatible with newer version as this is redundant in 1.2.12+
+  context.requireVersion('<=1.2.11');
+
   // Convert our placeholder path to the real thing. 
   const truePath = (iniPath: string, gamePath: string, myGames: string) => {
     if (iniPath.indexOf('{game}') !== -1) return iniPath.replace('{game}', gamePath);
